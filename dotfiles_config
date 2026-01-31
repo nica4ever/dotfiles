@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Link dotfiles to home directory
+
+mkdir -p ~/.config
+
+ln -sf ~/Documents/dotfiles/.bashrc ~/.bashrc
+ln -sf ~/Documents/dotfiles/.vimrc ~/.vimrc
+ln -sf ~/Documents/dotfiles/.tmux.conf ~/.tmux.conf
+
+echo "Dotfiles linked!"
