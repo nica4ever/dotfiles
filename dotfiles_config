@@ -4,10 +4,12 @@
 
 mkdir -p ~/.config
 mkdir -p ~/.config/alacritty/themes
+mkdir -p ~/.config/tmux/plugins/tmux-dotbar
 
 ln -sf ~/Documents/dotfiles/.bashrc ~/.bashrc
 ln -sf ~/Documents/dotfiles/.vimrc ~/.vimrc
 ln -sf ~/Documents/dotfiles/.tmux.conf ~/.tmux.conf
+ln -sf ~/Documents/dotfiles/.config/tmux/plugins/tmux-dotbar/dotbar.tmux ~/.config/tmux/plugins/tmux-dotbar/dotbar.tmux
 ln -sf ~/Documents/dotfiles/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml 
 ln -sf ~/Documents/dotfiles/.config/alacritty/themes/tokyo-night-storm.toml ~/.config/alacritty/themes/tokyo-night-storm.toml
 echo "Dotfiles linked!"
