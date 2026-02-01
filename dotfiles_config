@@ -3,6 +3,7 @@
 # Link dotfiles to home directory
 
 mkdir -p ~/.config
+mkdir -p ~/.config/alacritty/themes
 
 ln -sf ~/Documents/dotfiles/.bashrc ~/.bashrc
 ln -sf ~/Documents/dotfiles/.vimrc ~/.vimrc

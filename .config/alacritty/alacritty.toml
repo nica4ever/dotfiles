@@ -28,21 +28,9 @@ blinking = "on"
 [font]
 size = 18.5
 
-[font.bold]
-family = "JetBrains Mono"
-style = "Bold"
-
 [font.glyph_offset]
 x = 0
 y = 0
-
-[font.italic]
-family = "JetBrains Mono"
-style = "Italic"
-
-[font.normal]
-family = "JetBrains Mono"
-style = "Regular"
 
 [font.offset]
 x = 0
