@@ -15,11 +15,11 @@ get_tmux_option() {
 }
 
 # colors
-bg=$(get_tmux_option "@tmux-dotbar-bg" '#0B0E14')
-fg=$(get_tmux_option "@tmux-dotbar-fg" '#475266')
-fg_current=$(get_tmux_option "@tmux-dotbar-fg-current" '#BFBDB6')
-fg_session=$(get_tmux_option "@tmux-dotbar-fg-session" '#565B66')
-fg_prefix=$(get_tmux_option "@tmux-dotbar-fg-prefix" '#95E6CB')
+bg=$(get_tmux_option "@tmux-dotbar-bg" 'default')
+fg=$(get_tmux_option "@tmux-dotbar-fg" '#32344a')
+fg_current=$(get_tmux_option "@tmux-dotbar-fg-current" '#7aa2f7')
+fg_session=$(get_tmux_option "@tmux-dotbar-fg-session" '#7aa2f7')
+fg_prefix=$(get_tmux_option "@tmux-dotbar-fg-prefix" '#ad8ee6')
 
 # bold options
 bold_status=$(get_tmux_option "@tmux-dotbar-bold-status" false)
@@ -37,8 +37,8 @@ else
   status_left=$("$left_state" && get_tmux_option "@tmux-dotbar-status-left" "#[bg=$bg,fg=$fg_session]#{?client_prefix,, #S }#[bg=$fg_prefix,fg=$bg,bold]#{?client_prefix, #S ,}#[bg=$bg,fg=${fg_session}]")
 fi
 
-right_state=$(get_tmux_option "@tmux-dotbar-right" false)
-status_right=$("$right_state" && get_tmux_option "@tmux-dotbar-status-right" "#[bg=$bg,fg=$fg_session] %H:%M #[bg=$bg,fg=${fg_session}]")
+right_state=$(get_tmux_option "@tmux-dotbar-right" true)
+status_right=$("$right_state" && get_tmux_option "@tmux-dotbar-status-right" "#[bg=$bg,fg=$fg_session]  %H:%M   %d-%m-%Y #[bg=$bg,fg=${fg_session}]")
 
 base_window_format=$(get_tmux_option "@tmux-dotbar-window-status-format" ' #W ')
 
@@ -46,7 +46,7 @@ ssh_enabled=$(get_tmux_option "@tmux-dotbar-ssh-enabled" true)
 
 if [ "$ssh_enabled" = true ]; then
   ssh_icon=$(get_tmux_option "@tmux-dotbar-ssh-icon" '󰌘')
-  ssh_icon_only=$(get_tmux_option "@tmux-dotbar-ssh-icon-only" false)
+  ssh_icon_only=$(get_tmux_option "@tmux-dotbar-ssh-icon-only" true)
 
   if [ "$ssh_icon_only" = true ]; then
     ssh_window_format=" ${ssh_icon}${base_window_format}"
