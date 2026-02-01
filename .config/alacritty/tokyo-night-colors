@@ -21,38 +21,3 @@ yellow = "#e0af68"
 [colors.primary]
 background = "#1a1b26"
 foreground = "#a9b1d6"
-
-[cursor.style]
-blinking = "on"
-
-[font]
-size = 18.5
-
-[font.glyph_offset]
-x = 0
-y = 0
-
-[font.offset]
-x = 0
-y = 0
-
-[[keyboard.bindings]]
-action = "SpawnNewInstance"
-key = "N"
-mods = "Control"
-
-[scrolling]
-history = 10000
-multiplier = 3
-
-[window]
-decorations = "None"
-opacity = 0.9
-
-[window.dimensions]
-columns = 150
-lines = 45
-
-[window.padding]
-x = 25
-y = 20
