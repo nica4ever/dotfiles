@@ -17,9 +17,9 @@ get_tmux_option() {
 # colors
 bg=$(get_tmux_option "@tmux-dotbar-bg" 'default')
 fg=$(get_tmux_option "@tmux-dotbar-fg" '#32344a')
-fg_current=$(get_tmux_option "@tmux-dotbar-fg-current" '#acb0d0')
-fg_session=$(get_tmux_option "@tmux-dotbar-fg-session" '#acb0d0')
-fg_prefix=$(get_tmux_option "@tmux-dotbar-fg-prefix" '#9ece6a')
+fg_current=$(get_tmux_option "@tmux-dotbar-fg-current" '#7aa2f7')
+fg_session=$(get_tmux_option "@tmux-dotbar-fg-session" '#7aa2f7')
+fg_prefix=$(get_tmux_option "@tmux-dotbar-fg-prefix" '#7da6ff')
 
 # bold options
 bold_status=$(get_tmux_option "@tmux-dotbar-bold-status" false)
