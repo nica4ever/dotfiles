@@ -2,16 +2,19 @@
 
 # Link dotfiles to home directory
 
+# Locate dotfiles dir
+var1=$(tree -i -fd "${HOME}" | grep "dotfiles")
+
 mkdir -p ~/.config
 mkdir -p ~/.config/alacritty/themes
 mkdir -p ~/.config/tmux/plugins/tmux-dotbar
 mkdir -p ~/.vim/autoload
 
-ln -sf ~/Documents/dotfiles/.bashrc ~/.bashrc
-ln -sf ~/Documents/dotfiles/.vimrc ~/.vimrc
-ln -sf ~/Documents/dotfiles/.vim/autoload/plug.vim ~/.vim/autoload/plug.vim
-ln -sf ~/Documents/dotfiles/.tmux.conf ~/.tmux.conf
+ln -sf "${var1}"/.bashrc ~/.bashrc
+ln -sf "${var1}"/.vimrc ~/.vimrc
+ln -sf "${var1}"/.vim/autoload/plug.vim ~/.vim/autoload/plug.vim
+ln -sf "${var1}"/.tmux.conf ~/.tmux.conf
 ln -sf ~/Documents/dotfiles/.config/tmux/plugins/tmux-dotbar/dotbar.tmux ~/.config/tmux/plugins/tmux-dotbar/dotbar.tmux
-ln -sf ~/Documents/dotfiles/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml 
-ln -sf ~/Documents/dotfiles/.config/alacritty/themes/tokyo-night-storm.toml ~/.config/alacritty/themes/tokyo-night-storm.toml
+ln -sf "${var1}"/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml 
+ln -sf "${var1}"/.config/alacritty/themes/tokyo-night-storm.toml ~/.config/alacritty/themes/tokyo-night-storm.toml
 echo "Dotfiles linked!"
