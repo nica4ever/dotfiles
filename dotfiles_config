@@ -3,7 +3,7 @@
 # Link dotfiles to home directory
 
 # Locate dotfiles dir
-var1=$(tree -i -fd "${HOME}" | grep "dotfiles")
+VAR1=$(tree -i -fd "${HOME}" | grep "dotfiles")
 
 mkdir -p ~/.config
 mkdir -p ~/.config/rofi/shared
@@ -14,40 +14,50 @@ mkdir -p ~/.config/gtk-4.0
 mkdir -p ~/.config/alacritty/themes
 mkdir -p ~/.config/tmux/plugins/tmux-dotbar
 mkdir -p ~/.vim/autoload
+mkdir -p ~/.config/fontconfig/conf.d/
 
 # .bashrc
-ln -sf "${var1}"/.bashrc  ~/.bashrc
+ln -sf "${VAR1}"/.bashrc  ~/.bashrc
+
 # .vimrc / .vim
-ln -sf "${var1}"/.vimrc ~/.vimrc
-ln -sf "${var1}"/.vim/autoload/plug.vim ~/.vim/autoload/plug.vim
+ln -sf "${VAR1}"/.vimrc ~/.vimrc
+ln -sf "${VAR1}"/.vim/autoload/plug.vim ~/.vim/autoload/plug.vim
 
 # Tmux
-ln -sf "${var1}"/.tmux.conf ~/.tmux.conf
-ln -sf "${var1}"/.config/tmux/plugins/tmux-dotbar/dotbar.tmux ~/.config/tmux/plugins/tmux-dotbar/dotbar.tmux
+ln -sf "${VAR1}"/.tmux.conf ~/.tmux.conf
+ln -sf "${VAR1}"/.config/tmux/plugins/tmux-dotbar/dotbar.tmux ~/.config/tmux/plugins/tmux-dotbar/dotbar.tmux
 
 # gkt
-ln -sf "${var1}"/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
-ln -sf "${var1}"/.config/gtk-4.0/settings.ini ~/.config/gtk-4.0/settings.ini
+ln -sf "${VAR1}"/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
+ln -sf "${VAR1}"/.config/gtk-4.0/settings.ini ~/.config/gtk-4.0/settings.ini
 
 # Sway config
-ln -sf "${var1}"/.config/sway/config ~/.config/sway/config
-ln -sf "${var1}"/.config/sway/config.d/20-swayidle.conf ~/.config/sway/config.d/20-swayidle.conf
-ln -sf "${var1}"/.config/sway/config.d/90-bar.conf ~/.config/sway/config.d/90-bar.conf
+ln -sf "${VAR1}"/.config/sway/config ~/.config/sway/config
+ln -sf "${VAR1}"/.config/sway/config.d/20-swayidle.conf ~/.config/sway/config.d/20-swayidle.conf
+ln -sf "${VAR1}"/.config/sway/config.d/90-bar.conf ~/.config/sway/config.d/90-bar.conf
 
 # Waybar
-ln -sf "${var1}"/.config/waybar/config ~/.config/waybar/config
-ln -sf "${var1}"/.config/waybar/launch.sh ~/.config/waybar/launch.sh
-ln -sf "${var1}"/.config/waybar/config ~/.config/config
-ln -sf "${var1}"/.config/waybar/modules/powermenu.sh ~/.config/waybar/modules/powermenu.sh
-ln -sf "${var1}"/.config/waybar/style.css ~/.config/waybar/style.css
+ln -sf "${VAR1}"/.config/waybar/config ~/.config/waybar/config
+ln -sf "${VAR1}"/.config/waybar/launch.sh ~/.config/waybar/launch.sh
+ln -sf "${VAR1}"/.config/waybar/config ~/.config/config
+ln -sf "${VAR1}"/.config/waybar/modules/powermenu.sh ~/.config/waybar/modules/powermenu.sh
+ln -sf "${VAR1}"/.config/waybar/style.css ~/.config/waybar/style.css
+
+# Swaybg
+ln -sf "${VAR1}"/.config/sway/wlp.sh ~/.config/sway/wlp.sh
 
 # Rofi
-ln -sf "${var1}"/.config/rofi/config.rasi ~/.config/rofi/config.rasi
-ln -sf "${var1}"/.config/rofi/shared/colors.rasi ~/.config/rofi/shared/colors.rasi
-ln -sf "${var1}"/.config/rofi/shared/fonts.rasi ~/.config/rofi/shared/fonts.rasi
+ln -sf "${VAR1}"/.config/rofi/config.rasi ~/.config/rofi/config.rasi
+ln -sf "${VAR1}"/.config/rofi/shared/colors.rasi ~/.config/rofi/shared/colors.rasi
+ln -sf "${VAR1}"/.config/rofi/shared/fonts.rasi ~/.config/rofi/shared/fonts.rasi
 
 # Alacritty
-ln -sf "${var1}"/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml 
-ln -sf "${var1}"/.config/alacritty/themes/tokyo-night-storm.toml ~/.config/alacritty/themes/tokyo-night-storm.toml
+ln -sf "${VAR1}"/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml 
+ln -sf "${VAR1}"/.config/alacritty/themes/tokyo-night-storm.toml ~/.config/alacritty/themes/tokyo-night-storm.toml
+
+# Fonts(JetBrains Mono | Inter | IBM Plex Serif)
+ln -sf "${VAR1}"/.config/fontconfig/conf.d/01-font.conf ~/.config/fontconfig/conf.d/01-font.conf
+ln -sf "${VAR1}"/.config/fontconfig/conf.d/01-font.conf ~/.config/fontconfig/conf.d/01-font.conf
+
 
 echo "Dotfiles linked!"
