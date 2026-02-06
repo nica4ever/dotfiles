@@ -1,0 +1,1 @@
+/home/nika/Projects/dotfiles/.config/sway/config.d

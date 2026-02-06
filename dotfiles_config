@@ -6,15 +6,49 @@
 var1=$(tree -i -fd "${HOME}" | grep "dotfiles")
 
 mkdir -p ~/.config
+mkdir -p ~/.config/rofi/shared
+mkdir -p ~/.config/sway/config.d
+mkdir -p ~/.config/waybar/modules
+mkdir -p ~/.config/gtk-3.0
+mkdir -p ~/.config/gtk-4.0
 mkdir -p ~/.config/alacritty/themes
 mkdir -p ~/.config/tmux/plugins/tmux-dotbar
 mkdir -p ~/.vim/autoload
 
+# .bashrc
 ln -sf "${var1}"/.bashrc ~/.bashrc
+
+# .vimrc / .vim
 ln -sf "${var1}"/.vimrc ~/.vimrc
 ln -sf "${var1}"/.vim/autoload/plug.vim ~/.vim/autoload/plug.vim
+
+# Tmux
 ln -sf "${var1}"/.tmux.conf ~/.tmux.conf
-ln -sf ~/Documents/dotfiles/.config/tmux/plugins/tmux-dotbar/dotbar.tmux ~/.config/tmux/plugins/tmux-dotbar/dotbar.tmux
+ln -sf "${var1}"/.config/tmux/plugins/tmux-dotbar/dotbar.tmux ~/.config/tmux/plugins/tmux-dotbar/dotbar.tmux
+
+# gkt
+ln -s "${var1}"/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
+ln -s "${var1}"/.config/gtk-4.0/settings.ini ~/.config/gtk-4.0/settings.ini
+
+# Sway config
+ln -sf "${var1}"/.config/sway/config ~/.config/sway/config
+ln -sf "${var1}"/.config/sway/config.d/20-swayidle.conf ~/.config/sway/config.d/20-swayidle.conf
+ln -sf "${var1}"/.config/sway/config.d/90-bar.conf ~/.config/sway/config.d/90-bar.conf
+
+# Waybar
+ln -sf "${var1}"/.config/waybar/config ~/.config/waybar/config
+ln -sf "${var1}"/.config/waybar/launch.sh ~/.config/waybar/launch.sh
+ln -sf "${var1}"/.config/waybar/config ~/.config/config
+ln -sf "${var1}"/.config/waybar/modules/powermenu.sh ~/.config/waybar/modules/powermenu.sh
+ln -sf "${var1}"/.config/waybar/style.css ~/.config/waybar/style.css
+
+# Rofi
+ln -sf "${var1}"/.config/rofi/config.rasi ~/.config/rofi/config.rasi
+ln -sf "${var1}"/.config/rofi/shared/colors.rasi ~/.config/rofi/shared/colors.rasi
+ln -sf "${var1}"/.config/rofi/shared/fonts.rasi ~/.config/rofi/shared/fonts.rasi
+
+# Alacritty
 ln -sf "${var1}"/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml 
 ln -sf "${var1}"/.config/alacritty/themes/tokyo-night-storm.toml ~/.config/alacritty/themes/tokyo-night-storm.toml
+
 echo "Dotfiles linked!"
