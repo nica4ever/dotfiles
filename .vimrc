@@ -36,20 +36,24 @@ call plug#begin()
 
 " List your plugins here
 Plug 'ghifarit53/tokyonight-vim'
-
+Plug 'nordtheme/vim'
 call plug#end()
 
-" Color
+" I am not sure if its a problem with my setup or vim in general
 if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  let &t_8f = "[38;2;%lu;%lu;%lum"
+  let &t_8b = "[48;2;%lu;%lu;%lum"
 endif
 set termguicolors
 hi! Normal ctermbg=NONE guibg=NONE
-hi! NonText ctermbg=NONE guibg=NONE
+hi! Normal ctermbg=NONE guibg=NONE
 let g:tokyonight_style = 'night' " available: night, storm
 let g:tokyonight_enable_italic = 1
+let g:tokyonight_transparent_background = 1
 colorscheme tokyonight
+
+" Highlight comments
+highlight Comment guifg=#808080
 
 " PLUGINS ---------------------------------------------------------------- {{{
 
