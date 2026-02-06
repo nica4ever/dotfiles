@@ -17,16 +17,16 @@ get_tmux_option() {
 # colors
 bg=$(get_tmux_option "@tmux-dotbar-bg" 'default')
 fg=$(get_tmux_option "@tmux-dotbar-fg" '#32344a')
-fg_current=$(get_tmux_option "@tmux-dotbar-fg-current" '#7aa2f7')
-fg_session=$(get_tmux_option "@tmux-dotbar-fg-session" '#7aa2f7')
+fg_current=$(get_tmux_option "@tmux-dotbar-fg-current" '#a9b1d6')
+fg_session=$(get_tmux_option "@tmux-dotbar-fg-session" '#a9b1d6')
 fg_prefix=$(get_tmux_option "@tmux-dotbar-fg-prefix" '#7da6ff')
 
 # bold options
 bold_status=$(get_tmux_option "@tmux-dotbar-bold-status" false)
 bold_current_window=$(get_tmux_option "@tmux-dotbar-bold-current-window" false)
 
-status=$(get_tmux_option "@tmux-dotbar-position" "bottom")
-justify=$(get_tmux_option "@tmux-dotbar-justify" "absolute-centre")
+status=$(get_tmux_option "@tmux-dotbar-position" "top")
+justify=$(get_tmux_option "@tmux-dotbar-justify" "right")
 
 left_state=$(get_tmux_option "@tmux-dotbar-left" true)
 
@@ -37,7 +37,7 @@ else
   status_left=$("$left_state" && get_tmux_option "@tmux-dotbar-status-left" "#[bg=$bg,fg=$fg_session]#{?client_prefix,, #S }#[bg=$fg_prefix,fg=$bg,bold]#{?client_prefix, #S ,}#[bg=$bg,fg=${fg_session}]")
 fi
 
-right_state=$(get_tmux_option "@tmux-dotbar-right" true)
+right_state=$(get_tmux_option "@tmux-dotbar-right" false)
 status_right=$("$right_state" && get_tmux_option "@tmux-dotbar-status-right" "#[bg=$bg,fg=$fg_session]  %H:%M   %d-%m-%Y #[bg=$bg,fg=${fg_session}]")
 
 base_window_format=$(get_tmux_option "@tmux-dotbar-window-status-format" ' #W ')
