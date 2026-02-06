@@ -1,15 +1,18 @@
-### Variables
-#
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+
+# Font
+font pango:JetBrains Mono 12
 
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
+
 # Your preferred terminal emulator
-set $term alacritty-256color
+set $term alacritty
+
 # Your preferred application launcher
 # Recommends: rofi-wayland
 set $rofi_cmd rofi \
@@ -21,6 +24,8 @@ set $menu $rofi_cmd -show combi -combi-modes drun run -modes combi -theme ~/.con
 #output * bg /home/ionut/Pictures/Space.jpg fill
 #
    output eDP-1 resolution 1920x1080 position 1920,0
+
+exec ~/.config/sway/wlp.sh
 
 # Idle configuration
 exec swayidle -w \
