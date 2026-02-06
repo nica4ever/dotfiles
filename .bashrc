@@ -23,7 +23,6 @@ if [ -d ~/.bashrc.d ]; then
     done
 fi
 unset rc
-
 function parse_git_dirty {
   [[ $(git status --porcelain 2> /dev/null) ]] && echo "*"
 }

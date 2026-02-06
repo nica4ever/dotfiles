@@ -9,7 +9,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term alacritty
+set $term alacritty-256color
 # Your preferred application launcher
 # Recommends: rofi-wayland
 set $rofi_cmd rofi \
@@ -192,47 +192,9 @@ bindsym $mod+Shift+r mode "resize"
 
 # No border
     for_window [class="^.*"] border none
-# Window client color and transparency
-#
-#    set $opacity E0
-#    set $background #2e3440
-#    set $color_urgent #bf616a
-#    set $text_color #eceff4
-#    set $unfocused_text_color #8b8b8b
-#    set $title_bg_unfocused #293a56
-#    set $title_outline_active #5e81ac
-#    set $title_outline_unfocused #9B9999
 
-# Set Colors:           Border                   Background          Text                   Indicator             Child Border
-#    client.background       $background
-#    client.focused          $title_outline_active    $background$opacity $text_color            $title_outline_active $title_outline_active
-#    client.focused_inactive $title_outline_unfocused $background$opacity $unfocused_text_color  $text_color           $title_outline_unfocused
-#    client.unfocused        $title_outline_unfocused $title_bg_unfocused $unfocused_text_color  $title_outline_active
-#    client.urgent           $color_urgent            $color_urgent       $color_urgent          $color_urgent         $color_urgent
+# Waybar
+    exec_always ~/.config/waybar/launch.sh
 
-#Waybar
- exec_always ~/.config/waybar/launch.sh
-
-
-#Include configs from 3 locations:
-#   - /usr/share/sway/config.d
-#   - /etc/sway/config.d
-#   - $XDG_CONFIG_HOME/sway/config.d ($HOME/.config/sway/config.d)
-#
-# If multiple directories contain the files with the same name, the later
-# directory takes precedence; `$XDG_CONFIG_HOME/sway/config.d/20-swayidle.conf`
-# will always be loaded instead of `/usr/share/sway/config.d/20-swayidle.conf`
-# or `/etc/sway/config.d/20-swayidle.conf`
-#
-# This mechanism permits overriding our default configuration per-system
-# (/etc) or per-user ($XDG_CONFIG_HOME) basis. Just create the file you
-# want to modify/override in the higher-level directory.
-#
-# For example, to disable the default bar from Fedora configs, you'll need to
-#     $ echo -n > "$HOME/.config/sway/config.d/90-bar.conf"
-#
-# Note the quoting, the $() and the arguments quoting. All the parts are equally
-# important to make the magic work. And if you want to learn the secret behind
-# the trick, it's all in the `wordexp(3)`.
-#
-include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
+# Sway atomic
+    include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'

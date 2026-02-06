@@ -16,8 +16,7 @@ mkdir -p ~/.config/tmux/plugins/tmux-dotbar
 mkdir -p ~/.vim/autoload
 
 # .bashrc
-ln -sf "${var1}"/.bashrc ~/.bashrc
-
+ln -sf "${var1}"/.bashrc  ~/.bashrc
 # .vimrc / .vim
 ln -sf "${var1}"/.vimrc ~/.vimrc
 ln -sf "${var1}"/.vim/autoload/plug.vim ~/.vim/autoload/plug.vim
@@ -27,8 +26,8 @@ ln -sf "${var1}"/.tmux.conf ~/.tmux.conf
 ln -sf "${var1}"/.config/tmux/plugins/tmux-dotbar/dotbar.tmux ~/.config/tmux/plugins/tmux-dotbar/dotbar.tmux
 
 # gkt
-ln -s "${var1}"/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
-ln -s "${var1}"/.config/gtk-4.0/settings.ini ~/.config/gtk-4.0/settings.ini
+ln -sf "${var1}"/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
+ln -sf "${var1}"/.config/gtk-4.0/settings.ini ~/.config/gtk-4.0/settings.ini
 
 # Sway config
 ln -sf "${var1}"/.config/sway/config ~/.config/sway/config

@@ -56,3 +56,6 @@ lines = 45
 [window.padding]
 x = 25
 y = 20
+
+[env]
+TERM = "xterm-256color"
