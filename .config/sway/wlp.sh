@@ -4,7 +4,7 @@
 WP_FOLDER=~/Pictures/Wallpapers/Batch\ 1/
 
 # Time in seconds to change wallpaper
-WAIT_TIME=3599
+WAIT_TIME=599
 
 while true; do
     PID=$(pidof swaybg)
