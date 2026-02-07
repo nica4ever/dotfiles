@@ -1,3 +1,6 @@
+" Am scris ceva aici 
+
+
 "Basic defaults
 set nocompatible
 syntax on
