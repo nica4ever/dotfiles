@@ -15,7 +15,7 @@ mkdir -p ~/.config/alacritty/themes
 mkdir -p ~/.config/tmux/plugins/tmux-dotbar
 mkdir -p ~/.vim/autoload
 mkdir -p ~/.config/fontconfig/conf.d/
-
+mkdir -p ~/.config/dunst
 # .bashrc
 ln -sf "${VAR1}"/.bashrc  ~/.bashrc
 
@@ -30,6 +30,9 @@ ln -sf "${VAR1}"/.config/tmux/plugins/tmux-dotbar/dotbar.tmux ~/.config/tmux/plu
 # gkt
 ln -sf "${VAR1}"/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
 ln -sf "${VAR1}"/.config/gtk-4.0/settings.ini ~/.config/gtk-4.0/settings.ini
+
+# Dunst
+ln -sf "${VAR1}"/.config/dunst/dunstrc ~/.config/dunst/dunstrc
 
 # Sway config
 ln -sf "${VAR1}"/.config/sway/config ~/.config/sway/config
