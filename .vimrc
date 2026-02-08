@@ -1,6 +1,3 @@
-" Am scris ceva aici 
-
-
 "Basic defaults
 set nocompatible
 syntax on
@@ -42,7 +39,7 @@ Plug 'ghifarit53/tokyonight-vim'
 Plug 'nordtheme/vim'
 call plug#end()
 
-" I am not sure if its a problem with my setup or vim in general
+" Transparency and theme
 if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
   let &t_8f = "[38;2;%lu;%lu;%lum"
   let &t_8b = "[48;2;%lu;%lu;%lum"
@@ -56,7 +53,14 @@ let g:tokyonight_transparent_background = 1
 colorscheme tokyonight
 
 " Highlight comments
-highlight Comment guifg=#808080
+highlight Comment guifg=#ADADB1
+
+" Change collor of some elements
+highlight SpecialKey guifg=#ADADB1
+highlight EndOfBuffer guifg=#ADADB1
+highlight LineNr guifg=#ADADB1
+highlight Visual guifg=#444b6a guibg=#acb0d0
+
 
 " PLUGINS ---------------------------------------------------------------- {{{
 
