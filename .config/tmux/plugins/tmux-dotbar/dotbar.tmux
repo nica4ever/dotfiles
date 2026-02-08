@@ -16,7 +16,7 @@ get_tmux_option() {
 
 # colors
 bg=$(get_tmux_option "@tmux-dotbar-bg" 'default')
-fg=$(get_tmux_option "@tmux-dotbar-fg" '#32344a')
+fg=$(get_tmux_option "@tmux-dotbar-fg" '#5D5A5E')
 fg_current=$(get_tmux_option "@tmux-dotbar-fg-current" '#a9b1d6')
 fg_session=$(get_tmux_option "@tmux-dotbar-fg-session" '#a9b1d6')
 fg_prefix=$(get_tmux_option "@tmux-dotbar-fg-prefix" '#7da6ff')
