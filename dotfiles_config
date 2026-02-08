@@ -20,6 +20,7 @@ dirs=(
     ~/.config/tmux/plugins/tmux-dotbar
     ~/.vim/autoload
     ~/.config/dunst
+    ~/.config/autostart
 )
 
 for d in "${dirs[@]}"; do
@@ -47,6 +48,7 @@ links=(
     ".config/rofi/config.rasi|.config/rofi/config.rasi"
     ".config/rofi/tokyonight.rasi|.config/rofi/tokyonight.rasi"
     ".config/alacritty/alacritty.toml|.config/alacritty/alacritty.toml"
+    ".config/autostart/waypaper.desktop|.config/autostart/waypaper.desktop"
 )
 
 failed=0
