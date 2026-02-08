@@ -31,10 +31,3 @@ while true; do
     sleep "$INTERVAL"
     i=$(( (i + 1) % ${#IMGS[@]} ))
 done
-```
-
-**Sway config:**
-```
-# ~/.config/sway/config
-exec ~/.config/sway/wallpaper-db.sh && exec ~/.config/sway/wallpaper.sh
-exec_always ~/.config/sway/wallpaper.sh
