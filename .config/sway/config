@@ -25,62 +25,6 @@
     ### Output configuration
     output eDP-1 resolution 1920x1080 position 1920,0
 
-    
-    # Background 
-    exec ~/.config/sway/wallpaper-db.sh && exec ~/.config/sway/wallpaper.sh
-    exec_always ~/.config/sway/wallpaper.sh
-    
-    # Idle configuration
-    exec swayidle -w \
-    timeout 300 'swaylock -i "$(find ~/Pictures/Wallpapers/Batch\ 1/ -type f \( -name '"'"'*.png'"'"' -o -name '"'"'*.jpg'"'"' -o -name '"'"'*.jpeg'"'"' \) | shuf -n 1)" \
-    --indicator-radius 120 \
-    --indicator-thickness 10 \
-    --inside-color 1a1b2680 \
-    --ring-color 7aa2f7ff \
-    --key-hl-color 9ece6aff \
-    --bs-hl-color f7768eff \
-    --inside-ver-color 7aa2f780 \
-    --ring-ver-color bb9af7ff \
-    --inside-wrong-color f7768e80 \
-    --ring-wrong-color f7768eff \
-    --text-color a9b1d6ff \
-    --text-ver-color a9b1d6ff \
-    --text-wrong-color a9b1d6ff \
-    --line-color 00000000' \
-    timeout 600 'swaymsg "output * dpms off"' \
-    resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock -i "$(find ~/Pictures/Wallpapers/Batch\ 1/ -type f \( -name '"'"'*.png'"'"' -o -name '"'"'*.jpg'"'"' -o -name '"'"'*.jpeg'"'"' \) | shuf -n 1)" \
-    --indicator-radius 120 \
-    --indicator-thickness 10 \
-    --inside-color 1a1b2680 \
-    --ring-color 7aa2f7ff \
-    --key-hl-color 9ece6aff \
-    --bs-hl-color f7768eff \
-    --inside-ver-color 7aa2f780 \
-    --ring-ver-color bb9af7ff \
-    --inside-wrong-color f7768e80 \
-    --ring-wrong-color f7768eff \
-    --text-color a9b1d6ff \
-    --text-ver-color a9b1d6ff \
-    --text-wrong-color a9b1d6ff \
-    --line-color 00000000'
-
-    bindsym $mod+l exec swaylock -i "$(find ~/Pictures/Wallpapers/Batch\ 1/ -type f \( -name '*.png' -o -name '*.jpg' -o -name '*.jpeg' \) | shuf -n 1)" \
-    --indicator-radius 120 \
-    --indicator-thickness 10 \
-    --inside-color 1a1b2680 \
-    --ring-color 7aa2f7ff \
-    --key-hl-color 9ece6aff \
-    --bs-hl-color f7768eff \
-    --inside-ver-color 7aa2f780 \
-    --ring-ver-color bb9af7ff \
-    --inside-wrong-color f7768e80 \
-    --ring-wrong-color f7768eff \
-    --text-color a9b1d6ff \
-    --text-ver-color a9b1d6ff \
-    --text-wrong-color a9b1d6ff \
-    --line-color 00000000
-    
     # Prevent screen from locking
     for_window [class=".*"] inhibit_idle fullscreen
     for_window [app_id=".*"] inhibit_idle fullscreen

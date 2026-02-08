@@ -40,8 +40,6 @@ links=(
     ".config/sway/config|.config/sway/config"
     ".config/sway/config.d/20-swayidle.conf|.config/sway/config.d/20-swayidle.conf"
     ".config/sway/config.d/90-bar.conf|.config/sway/config.d/90-bar.conf"
-    ".config/sway/wallpaper.sh|.config/sway/wallpaper.sh"
-    ".config/sway/wallpaper-db.sh|.config/sway/wallpaper-db.sh"
     ".config/waybar/config|.config/waybar/config"
     ".config/waybar/launch.sh|.config/waybar/launch.sh"
     ".config/waybar/modules/powermenu.sh|.config/waybar/modules/powermenu.sh"
@@ -62,9 +60,5 @@ for entry in "${links[@]}"; do
         ((failed++))
     fi
 done
-
-# Make scripts executable
-chmod +x ~/.config/sway/wallpaper.sh ~/.config/sway/wallpaper-db.sh 2>/dev/null
-chmod +x ~/.config/waybar/launch.sh ~/.config/waybar/modules/powermenu.sh 2>/dev/null
 
 echo "Dotfiles linked! ($failed missing)"
