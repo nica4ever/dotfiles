@@ -27,8 +27,8 @@
 
     
     # Background 
-    exec_always ~/.config/sway/wlp.sh
-
+    exec ~/.config/sway/wallpaper-db.sh && exec ~/.config/sway/wallpaper.sh
+    exec_always ~/.config/sway/wallpaper.sh
     
     # Idle configuration
     exec swayidle -w \
@@ -212,7 +212,7 @@
     
     # Resizing containers:
 
-mode "resize" {
+    mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
     # up will shrink the containers height
