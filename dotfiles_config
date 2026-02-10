@@ -20,7 +20,7 @@ dirs=(
     ~/.config/tmux/plugins/tmux-dotbar
     ~/.vim/autoload
     ~/.config/dunst
-    ~/.config/autostart
+    ~/.config/containers/systemd/
 )
 
 for d in "${dirs[@]}"; do
@@ -48,8 +48,20 @@ links=(
     ".config/rofi/config.rasi|.config/rofi/config.rasi"
     ".config/rofi/tokyonight.rasi|.config/rofi/tokyonight.rasi"
     ".config/alacritty/alacritty.toml|.config/alacritty/alacritty.toml"
-    ".config/autostart/waypaper.desktop|.config/autostart/waypaper.desktop"
+    ".config/containers/systemd/wallpaper.container|.config/containers/systemd/wallpaper.container"
+    ".config/containers/systemd/Containerfile.wallpaper|.config/containers/systemd/Containerfile.wallpaper"
+    ".config/containers/systemd/wallpaper-loop.sh|.config/containers/systemd/wallpaper-loop.sh"
 )
+
+# Podman container for sww wallpaper
+
+if podman build --build-arg USERNAME="$(whoami)" -t localhost/wallpaper -f ~/.config/containers/systemd/Containerfile.wallpaper ~/.config/containers/systemd/ && \
+   systemctl --user daemon-reload && \
+   systemctl --user restart wallpaper; then
+  :
+else
+  echo "wallpaper container fail"
+fi
 
 failed=0
 for entry in "${links[@]}"; do
