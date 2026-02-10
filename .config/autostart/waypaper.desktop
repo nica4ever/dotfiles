@@ -1,5 +1,0 @@
-[Desktop Entry]
-Name=Waypaper
-Comment=Wallpaper app
-Exec=toolbox run --container waypaper waypaper
-Type=Application
