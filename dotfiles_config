@@ -21,6 +21,7 @@ dirs=(
     ~/.vim/autoload
     ~/.config/dunst
     ~/.config/containers/systemd/
+    ~/.config/systemd/user/default.target.wants
 )
 
 for d in "${dirs[@]}"; do
@@ -62,6 +63,9 @@ if podman build --build-arg USERNAME="$(whoami)" -t localhost/wallpaper -f ~/.co
 else
   echo "wallpaper container fail"
 fi
+
+ln -sf /run/user/1000/systemd/generator/wallpaper.service ~/.config/systemd/user/default.target.wants/wallpaper.service
+systemctl --user daemon-reload
 
 failed=0
 for entry in "${links[@]}"; do
