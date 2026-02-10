@@ -1,6 +1,8 @@
 # ~/.config/containers/systemd/wallpaper.container
 [Unit]
 Description=Wallpaper container
+After=graphical-session.target
+Requires=graphical-session.target
 
 [Container]
 Image=localhost/wallpaper

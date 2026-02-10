@@ -1,5 +1,9 @@
 # ~/.config/containers/systemd/wallpaper-loop.sh
 #!/bin/sh
+#!/bin/sh
+until [ -S "$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY" ]; do
+  sleep 1
+done
 swww-daemon &
 sleep 1
 while true; do
