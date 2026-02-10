@@ -1,0 +1,23 @@
+# ~/.config/containers/systemd/wallpaper.container
+[Unit]
+Description=Wallpaper container
+
+[Container]
+Image=localhost/wallpaper
+ContainerName=wallpaper
+Exec=sh /config/wallpaper-loop.sh
+UserNS=keep-id
+PodmanArgs=--security-opt label=disable
+Environment=WAYLAND_DISPLAY=wayland-1
+Environment=XDG_RUNTIME_DIR=%t
+Environment=HOME=%h
+Volume=%t:%t
+Volume=wallpaper-cache:%h/.cache/swww
+Volume=%h/Pictures/Wallpapers:/wallpapers:ro
+Volume=%h/.config/containers/systemd/wallpaper-loop.sh:/config/wallpaper-loop.sh:ro
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
