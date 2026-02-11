@@ -13,6 +13,7 @@ fi
 dirs=(
     ~/.config/rofi/shared
     ~/.config/sway/config.d
+    ~/.config/sway/lock_idle
     ~/.config/waybar/modules
     ~/.config/gtk-3.0
     ~/.config/gtk-4.0
@@ -20,7 +21,6 @@ dirs=(
     ~/.config/tmux/plugins/tmux-dotbar
     ~/.vim/autoload
     ~/.config/dunst
-    ~/.config/containers/systemd/
     ~/.config/systemd/user/default.target.wants
 )
 
@@ -42,6 +42,9 @@ links=(
     ".config/sway/config|.config/sway/config"
     ".config/sway/config.d/20-swayidle.conf|.config/sway/config.d/20-swayidle.conf"
     ".config/sway/config.d/90-bar.conf|.config/sway/config.d/90-bar.conf"
+    ".config/sway/lock_idle/lock.sh|.config/sway/lock_idle/lock.sh"
+    ".config/sway/lock_idle/swayidle.conf|.config/sway/lock_idle/swayidle.conf"
+    ".config/sway/lock_idle/swaylock.conf|.config/sway/lock_idle/swaylock.conf"
     ".config/waybar/config|.config/waybar/config"
     ".config/waybar/launch.sh|.config/waybar/launch.sh"
     ".config/waybar/modules/powermenu.sh|.config/waybar/modules/powermenu.sh"
