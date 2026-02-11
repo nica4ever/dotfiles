@@ -24,6 +24,10 @@
     
     ### Output configuration
     output eDP-1 resolution 1920x1080 position 1920,0
+    
+
+    exec swayidle -w -C ~/.config/sway/lock_idle/swayidle.conf
+    bindsym $mod+l exec ~/.config/sway/lock_idle/lock.sh
 
     # Prevent screen from locking
     for_window [class=".*"] inhibit_idle fullscreen
@@ -186,3 +190,4 @@
 
     # Sway atomic
     include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
+
