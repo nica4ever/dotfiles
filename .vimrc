@@ -36,7 +36,6 @@
 
 " List your plugins here
     Plug 'ghifarit53/tokyonight-vim'
-    Plug 'nordtheme/vim'
     call plug#end()
 
 " Transparency and theme
@@ -74,7 +73,8 @@
 
 " Cursor line for netrw selection
     set cursorline
-    highlight CursorLine guibg=#1f2335 ctermbg=NONE
+    highlight CursorLine guibg=NONE gui=underline ctermbg=NONE cterm=underline
+    highlight CursorLineNr guibg=NONE gui=underline ctermbg=NONE cterm=underline guifg=#7aa2f7
 
 " PLUGINS ---------------------------------------------------------------- {{{
 

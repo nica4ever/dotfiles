@@ -9,7 +9,7 @@ Image=localhost/wallpaper
 ContainerName=wallpaper
 Exec=sh /config/wallpaper-loop.sh
 UserNS=keep-id
-PodmanArgs=--security-opt label=disable
+PodmanArgs=--security-opt label=disable --pid=host
 Environment=WAYLAND_DISPLAY=wayland-1
 Environment=XDG_RUNTIME_DIR=%t
 Environment=HOME=%h
