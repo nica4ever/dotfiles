@@ -22,6 +22,8 @@ dirs=(
     ~/.vim/autoload
     ~/.config/dunst
     ~/.config/systemd/user/default.target.wants
+    ~/.config/containers/systemd
+    ~/Pictures/Wallpapers/sddm
 )
 
 for d in "${dirs[@]}"; do
@@ -69,6 +71,35 @@ fi
 
 ln -sf /run/user/1000/systemd/generator/wallpaper.service ~/.config/systemd/user/default.target.wants/wallpaper.service
 systemctl --user daemon-reload
+
+# SDDM theme (requires sudo)
+sddm_theme="/etc/sddm/themes/nika"
+sddm_src="$DOTDIR/sddm/themes/nika"
+sddm_conf="/etc/sddm.conf.d"
+
+if [[ -d "$sddm_src" ]]; then
+    sudo mkdir -p "$sddm_theme" "$sddm_conf"
+    for f in Main.qml theme.conf metadata.desktop angle-down.png; do
+        if [[ -e "$sddm_src/$f" ]]; then
+            sudo ln -sf "$sddm_src/$f" "$sddm_theme/$f"
+        else
+            echo "MISSING: $sddm_src/$f"
+        fi
+    done
+    # Wallpaper symlink: theme reads wallpaper.png -> user's sddm dir
+    sudo ln -sf "$HOME/Pictures/Wallpapers/sddm/sddm.png" "$sddm_theme/wallpaper.png"
+    # SDDM conf override
+    sudo tee "$sddm_conf/theme.conf" > /dev/null << EOF
+[Theme]
+ThemeDir=/etc/sddm/themes
+Current=nika
+EOF
+    # Ensure sddm user can traverse
+    chmod o+rx "$HOME" "$HOME/Pictures" "$HOME/Pictures/Wallpapers" "$HOME/Pictures/Wallpapers/sddm" 2>/dev/null
+    echo "SDDM theme linked!"
+else
+    echo "SDDM theme source not found: $sddm_src"
+fi
 
 failed=0
 for entry in "${links[@]}"; do
