@@ -29,6 +29,9 @@
     ### Output configuration
 #    output eDP-1 resolution 1920x1080 position 1920,0
     
+    # Color temperature
+    exec_always ~/.config/sway/wlsun 
+    
     # Swaylock
     bindsym $mod+l exec ~/.config/sway/lock_idle/lock.sh
 

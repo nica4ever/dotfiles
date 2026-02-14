@@ -47,6 +47,7 @@ links=(
     ".config/sway/lock_idle/lock.sh|.config/sway/lock_idle/lock.sh"
     ".config/sway/lock_idle/swayidle.conf|.config/sway/lock_idle/swayidle.conf"
     ".config/sway/lock_idle/swaylock.conf|.config/sway/lock_idle/swaylock.conf"
+    ".config/sway/wlsun|.config/sway/wlsun"
     ".config/waybar/config|.config/waybar/config"
     ".config/waybar/launch.sh|.config/waybar/launch.sh"
     ".config/waybar/modules/powermenu.sh|.config/waybar/modules/powermenu.sh"
