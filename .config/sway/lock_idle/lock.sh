@@ -1,5 +1,5 @@
 #!/bin/sh
 pidof swaylock && exit
-grim /tmp/lockscreen.png && \
-magick /tmp/lockscreen.png -blur 0x5 -fill black -colorize 25% /tmp/lockscreen.png && \
-swaylock -f --config ~/.config/sway/lock_idle/swaylock.conf --image /tmp/lockscreen.png
+grim -t ppm - | \
+magick - -scale 75% -blur 0x4 -fill black -colorize 25% -scale 133.33% -quality 90 /tmp/lockscreen.jpg && \
+swaylock -f --config ~/.config/sway/lock_idle/swaylock.conf --image /tmp/lockscreen.jpg
