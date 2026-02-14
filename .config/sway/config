@@ -23,10 +23,9 @@
     set $menu $rofi_cmd -show combi -combi-modes drun,run,window -modes combi -theme ~/.config/rofi/config.rasi
     
     ### Output configuration
-    output eDP-1 resolution 1920x1080 position 1920,0
+#    output eDP-1 resolution 1920x1080 position 1920,0
     
-
-    exec swayidle -w -C ~/.config/sway/lock_idle/swayidle.conf
+    # Swaylock
     bindsym $mod+l exec ~/.config/sway/lock_idle/lock.sh
 
     # Prevent screen from locking
