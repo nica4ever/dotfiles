@@ -180,9 +180,19 @@
     bindsym Escape mode "default"
 }
     bindsym $mod+Shift+r mode "resize"
-
+    
+    # Border
+    smart_borders on
+    default_border pixel 2
+    default_floating_border pixel 2
+    
+    client.focused          #565f89   #1a1b26     #a9b1d6   #565f89     #565f89
+    client.focused_inactive #32344a   #1a1b26     #565f89   #32344a     #32344a
+    client.unfocused        #32344a   #1a1b26     #565f89   #32344a     #32344a
+    client.urgent           #f7768e   #1a1b26     #a9b1d6   #f7768e     #f7768e
+    
     # No border
-    for_window [class="^.*"] border none
+#    for_window [class="^.*"] border none
 
     # Waybar
     exec_always ~/.config/waybar/launch.sh
