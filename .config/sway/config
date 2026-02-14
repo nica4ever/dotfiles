@@ -27,8 +27,10 @@
     set $menu $rofi_cmd -show combi -combi-modes drun,run,window -modes combi -theme ~/.config/rofi/config.rasi
     
     ### Output configuration
-#    output eDP-1 resolution 1920x1080 position 1920,0
-    
+    output eDP-1 mode 1920x1080@60.049Hz 
+    output eDP-1 scale 1.1
+    output eDP-1 subpixel rgb
+ 
     # Color temperature
     exec_always ~/.config/sway/wlsun 
     
