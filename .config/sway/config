@@ -17,10 +17,10 @@
     set $term alacritty
 
     # Cursor theme
-    seat seat0 xcursor_theme Simp1e-Tokyo-Night 24
-    exec_always gsettings set org.gnome.desktop.interface cursor-theme 'Simp1e-Tokyo-Night'
+    seat seat0 xcursor_theme nika-cursor 24
+    exec_always gsettings set org.gnome.desktop.interface cursor-theme 'nika-cursor'
     exec_always gsettings set org.gnome.desktop.interface cursor-size 24
-    
+
     # Your preferred application launcher
     set $rofi_cmd rofi \
     -terminal '$term'

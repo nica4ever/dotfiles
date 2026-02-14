@@ -24,7 +24,6 @@ dirs=(
     ~/.config/systemd/user/default.target.wants
     ~/.config/containers/systemd
     ~/Pictures/Wallpapers/sddm
-    ~/.local/share/icons/
 )
 
 for d in "${dirs[@]}"; do
@@ -95,6 +94,7 @@ if [[ -d "$sddm_src" ]]; then
 ThemeDir=/etc/sddm/themes
 Current=nika
 EOF
+
     # Ensure sddm user can traverse
     chmod o+rx "$HOME" "$HOME/Pictures" "$HOME/Pictures/Wallpapers" "$HOME/Pictures/Wallpapers/sddm" 2>/dev/null
     echo "SDDM theme linked!"
@@ -102,15 +102,12 @@ else
     echo "SDDM theme source not found: $sddm_src"
 fi
 
-# Cursor theme
-CURSOR_NAME="Simp1e-Tokyo-Night"
+    # Cursor theme
+CURSOR_NAME="nika-cursor"
 CURSOR_DIR="$HOME/.local/share/icons/$CURSOR_NAME"
 if [[ ! -d "$CURSOR_DIR" ]]; then
-    mkdir -p "$HOME/.local/share/icons" /tmp/cursor-install
-    curl -sL "https://gitlab.com/cursors/simp1e/-/jobs/artifacts/20250223/download?job=build" -o /tmp/cursor-install/simp1e.zip
-    unzip -q /tmp/cursor-install/simp1e.zip -d /tmp/cursor-install/
-    tar xJf /tmp/cursor-install/built_themes/$CURSOR_NAME.tar.xz -C "$HOME/.local/share/icons/"
-    rm -rf /tmp/cursor-install
+    mkdir -p "$HOME/.local/share/icons"
+    tar xzf "$DOTDIR/cursors/nika-cursor.tar.gz" -C "$HOME/.local/share/icons/"
     echo "Cursor theme installed!"
 else
     echo "Cursor theme already installed."
