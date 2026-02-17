@@ -64,18 +64,44 @@ links=(
 # Font
 curl -fL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz | tar xJ -C ~/.local/share/fonts/ && fc-cache -fv
 
+# Symlinks first — container build depends on these existing
+failed=0
+for entry in "${links[@]}"; do
+    src="${DOTDIR}/${entry%%|*}"
+    dst="$HOME/${entry##*|}"
+    if [[ -e "$src" ]]; then
+        ln -sf "$src" "$dst"
+    else
+        echo "MISSING: $src"
+        ((failed++))
+    fi
+done
+
+echo "Dotfiles linked! ($failed missing)"
+
 # Podman container for sww wallpaper
+# Gate: only build if Containerfile and quadlet unit both exist at their symlinked paths
+container_file="$HOME/.config/containers/systemd/Containerfile.wallpaper"
+container_unit="$HOME/.config/containers/systemd/wallpaper.container"
+container_script="$HOME/.config/containers/systemd/wallpaper-loop.sh"
 
-if podman build --build-arg USERNAME="$(whoami)" -t localhost/wallpaper -f ~/.config/containers/systemd/Containerfile.wallpaper ~/.config/containers/systemd/ && \
-   systemctl --user daemon-reload && \
-   systemctl --user restart wallpaper; then
-  :
+if [[ -e "$container_file" && -e "$container_unit" && -e "$container_script" ]]; then
+    if podman build --build-arg USERNAME="$(whoami)" -t localhost/wallpaper -f "$container_file" "$(dirname "$container_file")/" && \
+       systemctl --user daemon-reload && \
+       systemctl --user restart wallpaper; then
+        :
+    else
+        echo "wallpaper container fail"
+    fi
+
+    ln -sf /run/user/1000/systemd/generator/wallpaper.service ~/.config/systemd/user/default.target.wants/wallpaper.service
+    systemctl --user daemon-reload
 else
-  echo "wallpaper container fail"
+    echo "SKIP: wallpaper container — missing prerequisites:"
+    [[ ! -e "$container_file" ]]   && echo "  - $container_file"
+    [[ ! -e "$container_unit" ]]   && echo "  - $container_unit"
+    [[ ! -e "$container_script" ]] && echo "  - $container_script"
 fi
-
-ln -sf /run/user/1000/systemd/generator/wallpaper.service ~/.config/systemd/user/default.target.wants/wallpaper.service
-systemctl --user daemon-reload
 
 # SDDM theme (requires sudo)
 sddm_theme="/etc/sddm/themes/nika"
@@ -118,16 +144,8 @@ else
     echo "Cursor theme already installed."
 fi
 
-failed=0
-for entry in "${links[@]}"; do
-    src="${DOTDIR}/${entry%%|*}"
-    dst="$HOME/${entry##*|}"
-    if [[ -e "$src" ]]; then
-        ln -sf "$src" "$dst"
-    else
-        echo "MISSING: $src"
-        ((failed++))
-    fi
-done
+# rpm-ostree commands 
+rpm-ostree override remove nano nano-default-editor --install=vim-default-editor
+rpm-ostree install tmux
 
-echo "Dotfiles linked! ($failed missing)"
+echo "FINISH XD"

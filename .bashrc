@@ -30,4 +30,8 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1$(parse_git_dirty))/"
 }
 
-export PS1="\n\t \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
+TN_BLUE="\[\e[38;2;122;162;247m\]"
+TN_YELLOW="\[\e[38;2;224;175;104m\]"
+TN_RESET="\[\e[0m\]"
+
+export PS1="\n\t ${TN_BLUE}\w${TN_YELLOW}\$(parse_git_branch)${TN_RESET} $ " 
