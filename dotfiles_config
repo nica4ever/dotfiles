@@ -17,7 +17,7 @@ dirs=(
     ~/.config/waybar/modules
     ~/.config/gtk-3.0
     ~/.config/gtk-4.0
-    ~/.config/alacritty/themes
+    ~/.config/foot
     ~/.config/tmux/plugins/tmux-dotbar
     ~/.vim/autoload
     ~/.config/dunst
@@ -55,7 +55,7 @@ links=(
     ".config/waybar/style.css|.config/waybar/style.css"
     ".config/rofi/config.rasi|.config/rofi/config.rasi"
     ".config/rofi/tokyonight.rasi|.config/rofi/tokyonight.rasi"
-    ".config/alacritty/alacritty.toml|.config/alacritty/alacritty.toml"
+    ".config/foot/foot.ini|.config/foot/foot.ini"
     ".config/containers/systemd/wallpaper.container|.config/containers/systemd/wallpaper.container"
     ".config/containers/systemd/Containerfile.wallpaper|.config/containers/systemd/Containerfile.wallpaper"
     ".config/containers/systemd/wallpaper-loop.sh|.config/containers/systemd/wallpaper-loop.sh"
