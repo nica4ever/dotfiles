@@ -57,7 +57,7 @@
     bindsym $mod+f exec thunar
 
     #Start thunar
-    bindsym $mod+b exec flatpak run io.github.ungoogled_software.ungoogled_chromium 
+    bindsym $mod+b exec firefox 
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.

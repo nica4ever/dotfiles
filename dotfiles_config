@@ -23,6 +23,7 @@ dirs=(
     ~/.config/dunst
     ~/.config/systemd/user/default.target.wants
     ~/.config/containers/systemd
+    ~/.local/share/fonts
     ~/Pictures/Wallpapers/sddm
 )
 
@@ -59,6 +60,9 @@ links=(
     ".config/containers/systemd/Containerfile.wallpaper|.config/containers/systemd/Containerfile.wallpaper"
     ".config/containers/systemd/wallpaper-loop.sh|.config/containers/systemd/wallpaper-loop.sh"
 )
+
+# Font
+curl -fL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz | tar xJ -C ~/.local/share/fonts/ && fc-cache -fv
 
 # Podman container for sww wallpaper
 
