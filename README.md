@@ -1,5 +1,6 @@
 # Dofiles config
 Personal dotfile configuration
+## Dotfiles config for Fedora Sway Atomic
 
 ## Instructions
 1. Clone the repo 
