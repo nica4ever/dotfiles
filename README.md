@@ -1,11 +1,16 @@
-# Dofiles config
-Personal dotfile configuration
 ## Dotfiles config for Fedora Sway Atomic
-
+Hello this is my sway atomic config.
 ## Instructions
 1. Clone the repo 
 2. run ./dotfiles_config
-3. insert password when requested
-4. after you run the script in ~/Pictures/Wallpapers/sddm place a wallpaper of choice, the file must have the name sddm.png
-5. for normal wallpapers place the in the ~/Pictures/Wallpapers dir
+3. insert password when prompted(needed for wallpaper container and rpm-ostree for vim and tmux)
+4. after you run the script in ~/Pictures/Wallpapers/sddm place a wallpaper of choice, rename the wallpaper to "sddm.png"
+5. for normal wallpapers place them in the ~/Pictures/Wallpapers dir
+## What does the script do 
+1. It creates links from the dir where the repo was cloned to the ~/.config dir
+2. It sets up a wallpaper container in podman(rootless) for sww
+3. Removes nano as default editor and adds vim
+5. It layers tmux to the ostree
+> CAUTION
+> This config was made for Fedora Sway Atomic, the script will not work on other systems out of the box
 
