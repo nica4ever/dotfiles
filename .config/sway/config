@@ -58,6 +58,9 @@
     #Start thunar
     bindsym $mod+b exec exec flatpak run com.brave.Browser 
 
+    #Easyeffects for headphones (install via flatpak install flathub com.github.wwmm.easyeffects)
+    exec flatpak run com.github.wwmm.easyeffects --gapplication-service
+
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
