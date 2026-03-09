@@ -25,11 +25,26 @@
     set $menu $rofi_cmd -show combi -combi-modes drun,run,window -modes combi -theme ~/.config/rofi/config.rasi
     
     ### Output configuration
-    output eDP-1 mode 1920x1080@60.049Hz 
-    output eDP-1 scale 1
-    output eDP-1 subpixel rgb
-    output eDP-1 render_bit_depth 10 
+    ### Output configuration
+    output HDMI-A-1 mode 1920x1080@60Hz
+    output HDMI-A-1 transform 90
+    output HDMI-A-1 position 0,0
+    output HDMI-A-1 subpixel rgb
+    output HDMI-A-1 render_bit_depth 10
+    
+    output DP-1 mode 1920x1080@60Hz
+    output DP-1 position 1080,0
+    output DP-1 subpixel rgb
+    output DP-1 render_bit_depth 10
 
+    ### DPI / Scaling
+    output * scale 1
+    
+    ### Toolkit scaling
+    exec_always {
+    gsettings set org.gnome.desktop.interface text-scaling-factor 1.0
+    gsettings set org.gnome.desktop.interface cursor-size 24
+}
     # Color temperature
     exec_always ~/.config/sway/wlsun 
     
@@ -57,9 +72,6 @@
 
     #Start thunar
     bindsym $mod+b exec exec flatpak run com.brave.Browser 
-
-    #Easyeffects for headphones (install via flatpak install flathub com.github.wwmm.easyeffects)
-    exec flatpak run com.github.wwmm.easyeffects --gapplication-service
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
