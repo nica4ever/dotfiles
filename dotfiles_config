@@ -118,7 +118,7 @@ if [[ -d "$sddm_src" ]]; then
         fi
     done
     # Wallpaper copy: theme reads wallpaper.png -> user's sddm dir
-    sudo cp -f "$HOME/Pictures/Wallpapers/sddm/sddm.png" "$sddm_theme/wallpaper.png"
+    sudo ln -sf "$HOME/Pictures/Wallpapers/sddm/sddm.png" "$sddm_theme/wallpaper.png"
     # SDDM conf override
     sudo tee "$sddm_conf/theme.conf" > /dev/null << EOF
 [Theme]
