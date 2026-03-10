@@ -7,7 +7,7 @@ Hello this is my sway atomic config.
 4. after you run the script in ~/Pictures/Wallpapers/sddm place a wallpaper of choice, rename the wallpaper to "sddm.png"
 5. for normal wallpapers place them in the ~/Pictures/Wallpapers dir
 ## What does the script do 
-1. It creates links from the dir where the repo was cloned to the ~/.config dir
+1. It installs the dotfiles config
 2. It sets up a wallpaper container in podman(rootless) for sww
 3. Removes nano as default editor and adds vim
 5. It layers tmux to the ostree
