@@ -11,6 +11,6 @@ Hello this is my sway atomic config.
 2. It sets up a wallpaper container in podman(rootless) for sww
 3. Removes nano as default editor and adds vim
 5. It layers tmux to the ostree
-> CAUTION
+> NOTE
 > This config was made for Fedora Sway Atomic, the script will not work on other systems out of the box
 
