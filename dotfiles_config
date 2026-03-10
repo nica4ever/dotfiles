@@ -64,20 +64,20 @@ links=(
 # Font
 curl -fL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz | tar xJ -C ~/.local/share/fonts/ && fc-cache -fv
 
-# Symlinks first — container build depends on these existing
+# Copy files — no symlinks, local edits won't touch the repo
 failed=0
 for entry in "${links[@]}"; do
     src="${DOTDIR}/${entry%%|*}"
     dst="$HOME/${entry##*|}"
     if [[ -e "$src" ]]; then
-        ln -sf "$src" "$dst"
+        cp -f "$src" "$dst"
     else
         echo "MISSING: $src"
         ((failed++))
     fi
 done
 
-echo "Dotfiles linked! ($failed missing)"
+echo "Dotfiles copied! ($failed missing)"
 
 # Podman container for sww wallpaper
 # Gate: only build if Containerfile and quadlet unit both exist at their symlinked paths
@@ -112,13 +112,13 @@ if [[ -d "$sddm_src" ]]; then
     sudo mkdir -p "$sddm_theme" "$sddm_conf"
     for f in Main.qml theme.conf metadata.desktop angle-down.png; do
         if [[ -e "$sddm_src/$f" ]]; then
-            sudo ln -sf "$sddm_src/$f" "$sddm_theme/$f"
+            sudo cp -f "$sddm_src/$f" "$sddm_theme/$f"
         else
             echo "MISSING: $sddm_src/$f"
         fi
     done
-    # Wallpaper symlink: theme reads wallpaper.png -> user's sddm dir
-    sudo ln -sf "$HOME/Pictures/Wallpapers/sddm/sddm.png" "$sddm_theme/wallpaper.png"
+    # Wallpaper copy: theme reads wallpaper.png -> user's sddm dir
+    sudo cp -f "$HOME/Pictures/Wallpapers/sddm/sddm.png" "$sddm_theme/wallpaper.png"
     # SDDM conf override
     sudo tee "$sddm_conf/theme.conf" > /dev/null << EOF
 [Theme]

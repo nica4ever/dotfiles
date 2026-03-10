@@ -36,7 +36,6 @@
 
 " List your plugins here
     Plug 'ghifarit53/tokyonight-vim'
-    Plug 'tidalcycles/vim-tidal'
     call plug#end()
 
 " Transparency and theme
